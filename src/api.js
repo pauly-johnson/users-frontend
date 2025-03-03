@@ -10,11 +10,19 @@ export const registerUser = async (username, email, password) => {
 };
 
 export const loginUser = async (username, password) => {
-    console.log('loginUser');
-    
-    const response = await axios.post(`${BASE_URL}/user/auth/login`, { username, password });
-    localStorage.setItem('token', response.data.token);
-    return response.data;
+    try {
+        const response = await axios.post(`${BASE_URL}/user/auth/login`, { username, password });
+        localStorage.setItem('token', response.data.token);
+        return response.data;
+    } catch (err) {
+        if (err.response && err.response.status === 401) {
+            throw new Error('Incorrect Password');
+        } else if (err.response && err.response.status === 404) {
+            throw new Error('Invalid User');
+        } else {
+            throw new Error('Login failed');
+        }
+    }
 };
 
 export const getProtectedData = async () => {
