@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { registerUser } from '../api';
 
-const Register = ({ onRegisterSuccess }) => {
+const Register = ({ onRegisterSuccess, onRegisterClick }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,6 +15,7 @@ const Register = ({ onRegisterSuccess }) => {
             return;
         }
         setIsLoading(true);
+        onRegisterClick(); // Hide the "Back to Login" button
         try {
             await registerUser(username, email, password);
             alert('Registration successful!');
@@ -22,6 +23,7 @@ const Register = ({ onRegisterSuccess }) => {
         } catch (err) {
             alert('Registration failed.');
             setIsLoading(false);
+            onRegisterClick(true); // Show the "Back to Login" button again if registration fails
         }
     };
 

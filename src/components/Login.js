@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { loginUser } from '../api';
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, onLoginClick }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -11,6 +11,7 @@ const Login = ({ onLogin }) => {
         e.preventDefault();
         setIsLoading(true);
         setError('');
+        onLoginClick(); // Hide the "Sign Up" button
         try {
             await loginUser(username, password);
             console.log('Login successful!');
@@ -18,6 +19,7 @@ const Login = ({ onLogin }) => {
         } catch (err) {
             setError(err.message);
             setIsLoading(false);
+            onLoginClick(true); // Show the "Sign Up" button again if login fails
         }
     };
 
