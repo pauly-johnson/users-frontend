@@ -53,9 +53,9 @@ function App() {
 
   return (
     <div>
-      <h1>Welcome</h1>
       {!isLoggedIn ? (
         <div>
+          <h1>Welcome</h1>
           {!showRegister ? (
             <div>
               <Login onLogin={handleLogin} onLoginClick={handleLoginClick} />
