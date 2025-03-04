@@ -16,7 +16,7 @@ const Register = ({ onRegisterSuccess, onRegisterClick }) => {
       return;
     }
     setIsLoading(true);
-    onRegisterClick(); // Hide the "Back to Login" button
+    onRegisterClick(); 
     try {
       await registerUser(username, email, password);
       alert("Registration successful!");
@@ -30,7 +30,7 @@ const Register = ({ onRegisterSuccess, onRegisterClick }) => {
         alert("Registration failed.");
       }
       setIsLoading(false);
-      onRegisterClick(true); // Show the "Back to Login" button again if registration fails
+      onRegisterClick(true);
     }
   };
 

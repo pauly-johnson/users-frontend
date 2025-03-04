@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div>
-      <h1>My Full-Stack App</h1>
+      <h1>Welcome</h1>
       {!isLoggedIn ? (
         <div>
           {!showRegister ? (

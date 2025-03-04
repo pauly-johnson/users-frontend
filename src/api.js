@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://my-backend-nrvl.onrender.com/api'; // Replace with your Render URL
+const BASE_URL = 'https://my-backend-nrvl.onrender.com/api'; 
 
 export const registerUser = async (username, email, password) => {
     const payload = { username, email, password };

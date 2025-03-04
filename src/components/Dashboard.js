@@ -1,4 +1,4 @@
-// src/components/Dashboard.js
+
 import React, { useEffect, useState } from 'react';
 import { getProtectedData, logoutUser } from '../api';
 
@@ -13,7 +13,7 @@ const Dashboard = ({ onLogout }) => {
 
     return (
         <div>
-            <h2>Dashboard</h2>
+            <h2>Kia Ora</h2>
             {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading protected data...</p>}
             <button onClick={() => { logoutUser(); onLogout(); }}>
                 Logout

@@ -11,7 +11,7 @@ const Login = ({ onLogin, onLoginClick }) => {
         e.preventDefault();
         setIsLoading(true);
         setError('');
-        onLoginClick(); // Hide the "Sign Up" button
+        onLoginClick(); 
         try {
             await loginUser(username, password);
             console.log('Login successful!');
@@ -19,7 +19,7 @@ const Login = ({ onLogin, onLoginClick }) => {
         } catch (err) {
             setError(err.message);
             setIsLoading(false);
-            onLoginClick(true); // Show the "Sign Up" button again if login fails
+            onLoginClick(true);
         }
     };
 
